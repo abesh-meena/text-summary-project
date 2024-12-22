@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Summarization Web App</h1>
+        <form method="POST">
+            <label for="text">Enter your text:</label>
+            <textarea name="text" id="text" rows="10" cols="50" required></textarea>
+            
+            <label for="select_len">Select Summary Length (number of sentences):</label>
+            <input type="number" name="select_len" id="select_len" value="2" min="1">
+            
+            <button type="submit">Generate Summary</button>
+        </form>
+
+        {% if summary %}
+            <h2>Summary:</h2>
+            <p>{{ summary }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
